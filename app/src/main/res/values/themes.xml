@@ -30,19 +30,6 @@
         <item name="android:fontFamily">@font/google_sans</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-
-<!--        <item name="android:windowTranslucentStatus">true</item>-->
-<!--        <item name="android:windowDrawsSystemBarBackgrounds">true</item>-->
-
-<!--        <item name="android:windowContentTransitions">true</item>-->
-
-<!--        &lt;!&ndash; specify shared element transitions &ndash;&gt;-->
-<!--        <item name="android:windowSharedElementEnterTransition">-->
-<!--            @transition/change_image_transform-->
-<!--        </item>-->
-<!--        <item name="android:windowSharedElementExitTransition">-->
-<!--            @transition/change_image_transform-->
-<!--        </item>-->
     </style>
 
     <style name="Theme.MostViewedNYTimes.AppBarOverlay" parent="ThemeOverlay.MaterialComponents">
