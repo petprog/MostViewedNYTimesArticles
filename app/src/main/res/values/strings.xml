@@ -9,4 +9,14 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+
+    <string name="text_no_connectivity">No Connection</string>
+    <string name="text_connectivity">Back Online</string>
+    <string name="text_article_header">Article Header</string>
+    <string name="exit_dialog_message">Are you sure want to exit?</string>
+    <string name="exit_dialog_title">Exit?</string>
+    <string name="option_yes">Yes</string>
+    <string name="option_no">No</string>
+    <string name="share_message">\"%s\" by %s. \nVisit: https://github.com/umerjavaidkh/NY_Times</string>
 </resources>

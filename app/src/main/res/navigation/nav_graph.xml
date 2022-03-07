@@ -3,26 +3,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
-
+    app:startDestination="@id/articleListFragment">
     <fragment
-        android:id="@+id/FirstFragment"
-        android:name="com.petprog.nytimes.mostviewednytimes.ArticleListFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
-
+        android:id="@+id/articleListFragment"
+        android:name="com.petprog.nytimes.mostviewednytimes.view.ArticleListFragment"
+        android:label="@string/first_fragment_label" >
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            android:id="@+id/action_articleListFragment_to_articleDetailFragment"
+            app:destination="@id/articleDetailFragment" />
     </fragment>
     <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.petprog.nytimes.mostviewednytimes.ArticleDetailFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
-
+        android:id="@+id/articleDetailFragment"
+        android:name="com.petprog.nytimes.mostviewednytimes.view.ArticleDetailFragment"
+        android:label="@string/second_fragment_label" >
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+            android:id="@+id/action_articleDetailFragment_to_articleListFragment"
+            app:destination="@id/articleListFragment" />
+        <argument
+            android:name="articleId"
+            app:argType="long" />
     </fragment>
 </navigation>
