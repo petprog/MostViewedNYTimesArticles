@@ -17,10 +17,10 @@ import retrofit2.Response
 abstract class NetworkBoundRepository<RESULT, REQUEST> {
 
     fun asFlow() = flow<Resource<RESULT>> {
-
+        emit(Resource.Loading())
         // Emit Database content first
         emit(Resource.Success(fetchFromLocal().first()))
-
+        emit(Resource.Loading())
         // Fetch latest posts from remote
         val apiResponse = fetchFromRemote()
 
@@ -36,6 +36,7 @@ abstract class NetworkBoundRepository<RESULT, REQUEST> {
             emit(Resource.Failed(apiResponse.message()))
         }
 
+        emit(Resource.Loading())
         // Retrieve posts from persistence storage and emit
         emitAll(
             fetchFromLocal().map {

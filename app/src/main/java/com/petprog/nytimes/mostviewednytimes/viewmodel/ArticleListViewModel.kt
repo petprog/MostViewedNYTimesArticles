@@ -25,9 +25,13 @@ class ArticleListViewModel @Inject constructor(private val articleRepository: Ar
 
     fun getArticles() {
         viewModelScope.launch {
+            setToLoadAgain()
             articleRepository.getAllArticles()
                 .map { resource -> State.fromResource(resource) }
                 .collect { state -> _articles.value = state }
         }
+    }
+    fun setToLoadAgain() {
+        _articles.value = State.loading()
     }
 }

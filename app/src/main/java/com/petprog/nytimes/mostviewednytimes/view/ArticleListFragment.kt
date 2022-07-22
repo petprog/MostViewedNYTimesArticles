@@ -7,7 +7,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.navigation.fragment.findNavController
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -44,6 +43,9 @@ class ArticleListFragment : Fragment() {
     override fun onStart() {
         super.onStart()
         handleNetworkChanges()
+        binding.swipeRefreshLayout.setOnRefreshListener {
+            getArticles()
+        }
     }
 
     override fun onCreateView(
@@ -93,6 +95,7 @@ class ArticleListFragment : Fragment() {
     private fun handleNetworkChanges() {
         NetworkUtils.getNetworkLiveData(requireContext()).observe(this) { isConnected ->
             if (!isConnected) {
+                if (mAdapter.itemCount == 0) getArticles()
                 binding.textViewNetworkStatus.text =
                     getString(R.string.text_no_connectivity)
                 binding.networkStatusLayout.apply {
